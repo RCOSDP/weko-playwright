@@ -11,7 +11,7 @@ def test_helloworld(browser: Browser, browser_type: BrowserType):
     page.fill('input[name=q]', 'RCOS')
     with page.expect_navigation():
         page.click('input[name=btnK]')
-    page.screenshot(path=f'{browser_type.name}.png')
+    page.screenshot(path=f'images/{browser_type.name}.png')
     page.wait_for_timeout(1000)
     text = page.text_content(
         '//*[@id="rso"]/div[1]/div/div/div/div/div/div/div[1]/a/h3')
