@@ -61,9 +61,9 @@ def run(playwright):
     with page.expect_file_chooser() as fc_info:
         page.click("text=/.*Click to select.*/")
     file_chooser = fc_info.value
-    file_chooser.set_files("sample.pdf")
+    file_chooser.set_files("sample.xlsx")
 
-    page.screenshot(path=f'{"Autotest03_001_1"}.png')
+    page.screenshot(path=f'{"Autotest03_037_1"}.png')
 
     # Click text="Start upload"
     page.click("text=\"Start upload\"")
@@ -75,16 +75,11 @@ def run(playwright):
     page.click('//*[@id="weko-records"]/invenio-files-uploader/invenio-records/div[2]/div[8]/invenio-records-form/div/div/form/bootstrap-decorator[1]/fieldset/div/div[2]/div/div[1]/ol/li[1]/sf-decorator/div/sf-decorator[2]/fieldset/div/div[1]/a')
 
     page.select_option("//div[normalize-space(.)='abstractsummaryfulltextthumbnailother']/select", "string:summary")
-    #page.press("//div[normalize-space(.)='abstractsummaryfulltextthumbnailother']/select", "ArrowDown")
-    #page.press("//div[normalize-space(.)='abstractsummaryfulltextthumbnailother']/select", "ArrowDown")
-    page.wait_for_timeout(int(SET_WAIT))
-    page.screenshot(path=f'{"Autotest03_026_1"}.png')
 
     # Fill input[name="item_1617605131499.0.version"]
     page.fill("input[name=\"item_1617605131499.0.version\"]", "ver1")
 
     page.wait_for_timeout(int(SET_WAIT))
-    page.screenshot(path=f'{"Autotest03_028_1"}.png')
 
     # Press ArrowDown
     #page.select_option("//div[normalize-space(.)='DetailSimplePreview']/select", "string:Preview")
@@ -92,35 +87,19 @@ def run(playwright):
     page.press("//div[normalize-space(.)='DetailSimplePreview']/select", "ArrowDown")
     page.press("//div[normalize-space(.)='DetailSimplePreview']/select", "ArrowDown")
     page.wait_for_timeout(int(SET_WAIT))
-    page.screenshot(path=f'{"Autotest03_029_1"}.png')
 
     #page.select_option("//div[starts-with(normalize-space(.), 'write your own licenseCreative Commons CC0 1.0 Universal Public Domain Designati')]/select", "string:write your own license")
     page.press("//div[starts-with(normalize-space(.), 'write your own licenseCreative Commons CC0 1.0 Universal Public Domain Designati')]/select", "ArrowDown")
+    page.press("//div[starts-with(normalize-space(.), 'write your own licenseCreative Commons CC0 1.0 Universal Public Domain Designati')]/select", "ArrowDown")
 
-    # Fill textarea[name="item_1617605131499.0.licensefree"]
-    page.fill("textarea[name=\"item_1617605131499.0.licensefree\"]", "free")
 
     page.wait_for_timeout(int(SET_WAIT))
-    page.screenshot(path=f'{"Autotest03_032_1"}.png')
 
-    # page.fill("//label[normalize-space(.)='Input Open Access Date']/input[normalize-space(@type)='radio' and normalize-space(@name)='item_1617605131499.0.accessrole']", "open_date")
-    page.click("input[name=\"item_1617605131499.0.accessrole\"]")
+    # Click //label[normalize-space(.)='Registered User Only']      
+    page.click("//label[normalize-space(.)='Registered User Only']")
+
     page.wait_for_timeout(int(SET_WAIT))
-    page.screenshot(path=f'{"Autotest03_034_1"}.png')
-
-    # Click //label[normalize-space(.)='Input Open Access Date']/input[normalize-space(@type)='radio' and normalize-space(@name)='item_1617605131499.0.accessrole']
-    page.click("//label[normalize-space(.)='Input Open Access Date']/input[normalize-space(@type)='radio' and normalize-space(@name)='item_1617605131499.0.accessrole']")
-
-    # Click input[name="dateValue"]
-    page.click("input[name=\"dateValue\"]")
-
-    # Click //tr[normalize-space(.)='February 2022']/th[3]/button/i
-    page.click("//tr[normalize-space(.)='February 2022']/th[3]/button/i")
-
-    # Click text="05"
-    page.click("text=\"05\"")
-    page.wait_for_timeout(int(SET_WAIT))
-    page.screenshot(path=f'{"Autotest03_036_1"}.png')
+    page.screenshot(path=f'{"Autotest03_037_2"}.png')
  
     # Close page
     page.close()
