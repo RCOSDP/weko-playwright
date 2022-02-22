@@ -242,7 +242,7 @@ def run(playwright):
 
     page.wait_for_timeout(int(SET_WAIT))
 
-    page.screenshot(path=f'{"Autotest03_048_1"}.png')
+    page.screenshot(path=f'{"Autotest03_052_1"}.png')
 
     # Close page
     page.close()
