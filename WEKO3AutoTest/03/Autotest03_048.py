@@ -91,6 +91,20 @@ def run(playwright):
     
     page.screenshot(path=f'{"Autotest03_051_1"}.png')
 
+    page.click('//*[@id="weko-records"]/invenio-files-uploader/invenio-records/div[2]/div[8]/invenio-records-form/div/div/form/bootstrap-decorator[6]/fieldset/div/div[1]/a')
+
+    page.press("//*[@id='weko-records']/invenio-files-uploader/invenio-records/div[2]/div[8]/invenio-records-form/div/div/form/bootstrap-decorator[6]/fieldset/div/div[2]/sf-decorator[1]/div/div/select", "ArrowDown")
+
+    page.wait_for_timeout(int(SET_WAIT))
+
+    page.screenshot(path=f'{"Autotest03_053_1"}.png')
+
+    page.click('//*[@id="weko-records"]/invenio-files-uploader/invenio-records/div[2]/div[9]/div/div[1]/div/button[2]')
+
+    page.wait_for_timeout(int(SET_WAIT))
+    
+    page.screenshot(path=f'{"Autotest03_054_1"}.png')
+
     # Close page
     page.close()
 

@@ -244,6 +244,13 @@ def run(playwright):
 
     page.screenshot(path=f'{"Autotest03_052_1"}.png')
 
+    page.click('//*[@id="weko-records"]/invenio-files-uploader/invenio-records/div[2]/div[9]/div/div[1]/div/button[2]')
+
+    page.wait_for_timeout(int(SET_WAIT))
+    page.wait_for_timeout(int(SET_WAIT))
+    
+    page.screenshot(path=f'{"Autotest03_055_1"}.png')
+
     # Close page
     page.close()
 
