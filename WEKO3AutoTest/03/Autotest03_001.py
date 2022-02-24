@@ -223,6 +223,9 @@ def run(playwright):
 
     # Select string:conference paper
     page.select_option("//div[starts-with(normalize-space(.), 'conference paperdata paperdepartmental bulletin papereditorialjournal articlenew')]/select", "string:conference paper")
+    # Resource Type が見える位置に画面を来させる為に、Version Typeをクリック
+    page.click("//*[@id='weko-records']/invenio-files-uploader/invenio-records/div[2]/div[8]/invenio-records-form/div/div/form/bootstrap-decorator[17]/fieldset/div/div[1]/a")
+
     page.wait_for_timeout(5000)
     page.screenshot(path=f'{"Autotest03_046_1"}.png')
 
