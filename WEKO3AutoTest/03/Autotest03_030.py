@@ -63,8 +63,6 @@ def run(playwright):
     file_chooser = fc_info.value
     file_chooser.set_files("sample.docx")
 
-    # page.screenshot(path=f'{"Autotest03_001_1"}.png')
-
     # Click text="Start upload"
     page.click("text=\"Start upload\"")
 
@@ -80,7 +78,6 @@ def run(playwright):
     page.fill("input[name=\"item_1617605131499.0.version\"]", "ver1")
 
     page.wait_for_timeout(int(SET_WAIT))
-    #page.screenshot(path=f'{"Autotest03_028_1"}.png')
 
     # Press ArrowDown
     #page.select_option("//div[normalize-space(.)='DetailSimplePreview']/select", "string:Preview")
@@ -104,11 +101,8 @@ def run(playwright):
     # Click input[name="dateValue"]
     page.click("input[name=\"dateValue\"]")
 
-    # Click //tr[normalize-space(.)='February 2022']/th[3]/button/i
-    page.click("//tr[normalize-space(.)='February 2022']/th[3]/button/i")
-
     # Click text="05"
-    page.click("text=\"30\"")
+    page.click("text=\"28\"")
     page.wait_for_timeout(int(SET_WAIT))
     page.screenshot(path=f'{"Autotest03_036_1"}.png')
  
@@ -119,5 +113,11 @@ def run(playwright):
     context.close()
     browser.close()
 
+    return 0
+
+def test_OK():
+    assert a == 0
+
 with sync_playwright() as playwright:
-    run(playwright)
+    a = run(playwright)
+    test_OK()

@@ -2,6 +2,7 @@
 import pytest
 import configparser
 from playwright.sync_api import sync_playwright
+from os import path
 
 config_ini = configparser.ConfigParser()
 config_ini.read( "conf.ini", encoding = "utf-8" )
@@ -63,8 +64,6 @@ def run(playwright):
     file_chooser = fc_info.value
     file_chooser.set_files("sample.pptx")
 
-    # page.screenshot(path=f'{"Autotest03_001_1"}.png')
-
     # Click text="Start upload"
     page.click("text=\"Start upload\"")
 
@@ -101,15 +100,11 @@ def run(playwright):
     # Click input[name="dateValue"]
     page.click("input[name=\"dateValue\"]")
 
-    # Click //tr[normalize-space(.)='February 2022']/th[3]/button/i
-    # Click //tr[normalize-space(.)='February 2022']/th[1]/button
-    page.click("//tr[normalize-space(.)='February 2022']/th[1]/button")
-
     # Click text="01"
     page.click("text=\"01\"")
     page.wait_for_timeout(int(SET_WAIT))
-    page.screenshot(path=f'{"Autotest03_035_1"}.png')
- 
+    page.screenshot(path=f'{path.splitext(path.basename(__file__))[0]+"_1"}.png')
+
     # Close page
     page.close()
 
@@ -117,5 +112,11 @@ def run(playwright):
     context.close()
     browser.close()
 
+    return 0
+
+def test_OK():
+    assert a == 0
+
 with sync_playwright() as playwright:
-    run(playwright)
+    a = run(playwright)
+    test_OK()

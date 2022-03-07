@@ -59,52 +59,34 @@ def run(playwright):
         page.click("div[id=\"activity_locked\"] >> text=\"OK\"")
     # assert page.url == "https://localhost/workflow/activity/detail/A-20220203-00001?status="
 
-    # Click text=/.*Click to select.*/
-    with page.expect_file_chooser() as fc_info:
-        page.click("text=/.*Click to select.*/")
-    file_chooser = fc_info.value
-    file_chooser.set_files("sample.mpeg")
+    # Click text=/.*Creator.*/
+    page.click("text=/.*Creator.*/")
 
-    
-    page.screenshot(path=f'{path.splitext(path.basename(__file__))[0]+"_1"}.png')
-    #page.screenshot(path=f'{"Autotest03_038_1"}.png')
+    # Click text=/.*著者DBから入力.*/
+    page.click("text=/.*著者DBから入力.*/")
 
-    # Click text="Start upload"
-    page.click("text=\"Start upload\"")
+    page.wait_for_timeout(int(SET_WAIT))
 
-    # Click //a[normalize-space(.)='File']/span[1]/i
-    page.click('//*[@id="weko-records"]/invenio-files-uploader/invenio-records/div[2]/div[8]/invenio-records-form/div/div/form/bootstrap-decorator[1]/fieldset/div/div[1]/a')
+    page.click("text=\"Add Author\"")
+
+    # Fill input[placeholder="セイ"]
+    page.fill("input[placeholder=\"セイ\"]", "情報")
+
+    # Fill input[placeholder="メイ"]
+    page.fill("input[placeholder=\"メイ\"]", "太郎")
+
+    page.press('//*[@id="authorIdOption"]', "ArrowDown")
+   
+    # Fill //div[normalize-space(.)='+  Add E-mail']/div[1]/div/div[1]/input[normalize-space(@type)='text']
+    # page.fill("//div[normalize-space(.)='+  Add E-mail']/div[1]/div/div[1]/input[normalize-space(@type)='text']", "wekosoftware@nii.ac.jp")
+    page.fill('//*[@id="app-author-search"]/div/div/div[1]/app-author-search/div/div/app-add-author/div[2]/div/div/div/div[3]/div/div[2]/div[1]/div/div[1]/input', "wekosoftware@nii.ac.jp")
                 
-    # Click //a[normalize-space(.)='Text URL']/span[1]/i
-    page.click('//*[@id="weko-records"]/invenio-files-uploader/invenio-records/div[2]/div[8]/invenio-records-form/div/div/form/bootstrap-decorator[1]/fieldset/div/div[2]/div/div[1]/ol/li[1]/sf-decorator/div/sf-decorator[2]/fieldset/div/div[1]/a')
-
-    page.select_option("//div[normalize-space(.)='abstractsummaryfulltextthumbnailother']/select", "string:summary")
-
-    # Fill input[name="item_1617605131499.0.version"]
-    page.fill("input[name=\"item_1617605131499.0.version\"]", "ver1")
-
     page.wait_for_timeout(int(SET_WAIT))
 
-    # Press ArrowDown
-    #page.select_option("//div[normalize-space(.)='DetailSimplePreview']/select", "string:Preview")
-    page.press("//div[normalize-space(.)='DetailSimplePreview']/select", "ArrowDown")
-    page.press("//div[normalize-space(.)='DetailSimplePreview']/select", "ArrowDown")
-    page.press("//div[normalize-space(.)='DetailSimplePreview']/select", "ArrowDown")
-    page.wait_for_timeout(int(SET_WAIT))
+    page.screenshot(path=f'{path.splitext(path.basename(__file__))[0]+"_1"}.png')
 
-    #page.select_option("//div[starts-with(normalize-space(.), 'write your own licenseCreative Commons CC0 1.0 Universal Public Domain Designati')]/select", "string:write your own license")
-    page.press("//div[starts-with(normalize-space(.), 'write your own licenseCreative Commons CC0 1.0 Universal Public Domain Designati')]/select", "ArrowDown")
-    page.press("//div[starts-with(normalize-space(.), 'write your own licenseCreative Commons CC0 1.0 Universal Public Domain Designati')]/select", "ArrowDown")
-
-
-    page.wait_for_timeout(int(SET_WAIT))
-
-    # Click //label[normalize-space(.)='Registered User Only']      
-    page.click("//label[normalize-space(.)='Registered User Only']")
-
-    page.wait_for_timeout(int(SET_WAIT))
-    page.screenshot(path=f'{path.splitext(path.basename(__file__))[0]+"_2"}.png')
- 
+    page.click('//*[@id="app-author-search"]/div/div/div[1]/app-author-search/div/div/app-add-author/div[2]/div/div/div/div[4]/div[2]/button[2]')
+   
     # Close page
     page.close()
 

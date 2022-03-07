@@ -74,11 +74,27 @@ def run(playwright):
     # Click //a[normalize-space(.)='Text URL']/span[1]/i
     page.click('//*[@id="weko-records"]/invenio-files-uploader/invenio-records/div[2]/div[8]/invenio-records-form/div/div/form/bootstrap-decorator[1]/fieldset/div/div[2]/div/div[1]/ol/li[1]/sf-decorator/div/sf-decorator[2]/fieldset/div/div[1]/a')
 
-    page.select_option("//div[normalize-space(.)='abstractsummaryfulltextthumbnailother']/select", "string:summary")
+    page.select_option("//div[normalize-space(.)='abstractsummaryfulltextthumbnailother']/select", "string:abstract")
     #page.press("//div[normalize-space(.)='abstractsummaryfulltextthumbnailother']/select", "ArrowDown")
     #page.press("//div[normalize-space(.)='abstractsummaryfulltextthumbnailother']/select", "ArrowDown")
     page.wait_for_timeout(int(SET_WAIT))
     page.screenshot(path=f'{"Autotest03_026_1"}.png')
+
+    # Click text=/.*Date.*/
+    page.click("text=/.*Date.*/")
+    #page.click('//*[@id="weko-records"]/invenio-files-uploader/invenio-records/div[2]/div[8]/invenio-records-form/div/div/form/bootstrap-decorator[1]/fieldset/div/div[2]/div/div[1]/ol/li/sf-decorator/div/sf-decorator[5]/fieldset/div/div[1]/a')
+
+    page.select_option("//div[normalize-space(.)='AcceptedCollectedCopyrightedCreatedIssuedSubmittedUpdatedValid']/select", "string:Accepted")
+    #page.select_option('//*[@id="weko-records"]/invenio-files-uploader/invenio-records/div[2]/div[8]/invenio-records-form/div/div/form/bootstrap-decorator[1]/fieldset/div/div[2]/div/div[1]/ol/li/sf-decorator/div/sf-decorator[5]/fieldset/div/div[2]/div/div[1]/ol/li/sf-decorator/div/sf-decorator[1]/div/div/select', "string:Accepted")
+
+    # Click input[name="fileDateValue"]
+    page.click("input[name=\"fileDateValue\"]")
+
+    # Click text="19"
+    page.click("text=\"19\"")
+
+    page.wait_for_timeout(int(SET_WAIT))
+    page.screenshot(path=f'{"Autotest03_027_1"}.png')
 
     # Fill input[name="item_1617605131499.0.version"]
     page.fill("input[name=\"item_1617605131499.0.version\"]", "ver1")

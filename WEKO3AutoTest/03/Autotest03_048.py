@@ -66,7 +66,7 @@ def run(playwright):
     page.click("text=/.*著者DBから入力.*/")
 
     page.wait_for_timeout(int(SET_WAIT))
-
+   
     # Fill div[role="document"] input[type="text"]
     # page.fill("div[role=\"document\"] input[type=\"text\"]", "情報")
     page.fill("//*[@id='app-author-search']/div/div/div[1]/app-author-search/div/div/div/div/div[2]/div[1]/input", "情報")
@@ -77,23 +77,50 @@ def run(playwright):
 
     # page.click('//*[@id="btnModalClose"]')
 
-    page.click('//*[@id="weko-records"]/invenio-files-uploader/invenio-records/div[2]/div[8]/invenio-records-form/div/div/form/bootstrap-decorator[4]/fieldset/div/div[2]/div/div[1]/ol/li/sf-decorator/div/sf-decorator[2]/fieldset/div/div[1]/a')
-
+    #page.click('//*[@id="weko-records"]/invenio-files-uploader/invenio-records/div[2]/div[8]/invenio-records-form/div/div/form/bootstrap-decorator[4]/fieldset/div/div[2]/div/div[1]/ol/li/sf-decorator/div/sf-decorator[2]/fieldset/div/div[1]/a')
+                #//*[@id="weko-records"]/invenio-files-uploader/invenio-records/div[2]/div[8]/invenio-records-form/div/div/form/bootstrap-decorator[5]/fieldset/div/div[2]/div/div[1]/ol/li/sf-decorator/div/sf-decorator[2]/fieldset/div/div[1]/a
+    page.click("text=/.*Creator Identifier.*/")
     page.wait_for_timeout(int(SET_WAIT))
 
     page.screenshot(path=f'{path.splitext(path.basename(__file__))[0]+"_1"}.png')
 
+    # Click text=/.*Bibliographic Information.*/
+    page.click("text=/.*Bibliographic Information.*/")
+
+    # Fill input[name="item_1617187056579.bibliographicVolumeNumber"]
+    page.fill("input[name=\"item_1617187056579.bibliographicVolumeNumber\"]", "100")
+
+    # Fill input[name="item_1617187056579.bibliographicIssueNumber"]
+    page.fill("input[name=\"item_1617187056579.bibliographicIssueNumber\"]", "100")
+
+    # Fill input[name="item_1617187056579.bibliographicPageStart"]
+    page.fill("input[name=\"item_1617187056579.bibliographicPageStart\"]", "1")
+
+    # Fill input[name="item_1617187056579.bibliographicPageEnd"]
+    page.fill("input[name=\"item_1617187056579.bibliographicPageEnd\"]", "100")
+
+    # Fill input[name="item_1617187056579.bibliographicNumberOfPages"]
+    page.fill("input[name=\"item_1617187056579.bibliographicNumberOfPages\"]", "100")
+
+    page.wait_for_timeout(int(SET_WAIT))
+    
+    page.screenshot(path=f'{"Autotest03_050_1"}.png')
+
+
     page.click('//*[@id="weko-records"]/invenio-files-uploader/invenio-records/div[2]/div[8]/invenio-records-form/div/div/form/bootstrap-decorator[5]/fieldset/div/div[1]/a')
+                
+    #page.click("text=/.*Contributor.*/")
 
-    page.press("//*[@id='weko-records']/invenio-files-uploader/invenio-records/div[2]/div[8]/invenio-records-form/div/div/form/bootstrap-decorator[5]/fieldset/div/div[2]/div/div[1]/ol/li/sf-decorator/div/sf-decorator[1]/div/div/select", "ArrowDown")
-
+    page.press('//*[@id="weko-records"]/invenio-files-uploader/invenio-records/div[2]/div[8]/invenio-records-form/div/div/form/bootstrap-decorator[5]/fieldset/div/div[2]/div/div[1]/ol/li/sf-decorator/div/sf-decorator[1]/div/div/select', "ArrowDown")
+                
     page.wait_for_timeout(int(SET_WAIT))
     
     page.screenshot(path=f'{"Autotest03_051_1"}.png')
 
-    page.click('//*[@id="weko-records"]/invenio-files-uploader/invenio-records/div[2]/div[8]/invenio-records-form/div/div/form/bootstrap-decorator[6]/fieldset/div/div[1]/a')
+    #page.click('//*[@id="weko-records"]/invenio-files-uploader/invenio-records/div[2]/div[8]/invenio-records-form/div/div/form/bootstrap-decorator[6]/fieldset/div/div[1]/a')
+    page.click("text=/.*Access Rights.*/")
 
-    page.press("//*[@id='weko-records']/invenio-files-uploader/invenio-records/div[2]/div[8]/invenio-records-form/div/div/form/bootstrap-decorator[6]/fieldset/div/div[2]/sf-decorator[1]/div/div/select", "ArrowDown")
+    page.press('//*[@id="weko-records"]/invenio-files-uploader/invenio-records/div[2]/div[8]/invenio-records-form/div/div/form/bootstrap-decorator[6]/fieldset/div/div[2]/sf-decorator[1]/div/div/select', "ArrowDown")
 
     page.wait_for_timeout(int(SET_WAIT))
 
@@ -112,5 +139,11 @@ def run(playwright):
     context.close()
     browser.close()
 
+    return 0
+
+def test_OK():
+    assert a == 0
+
 with sync_playwright() as playwright:
-    run(playwright)
+    a = run(playwright)
+    test_OK()

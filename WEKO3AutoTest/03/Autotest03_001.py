@@ -229,6 +229,17 @@ def run(playwright):
     page.wait_for_timeout(int(SET_WAIT))
     page.screenshot(path=f'{"Autotest03_046_1"}.png')
 
+    page.click('//*[@id="weko-records"]/invenio-files-uploader/invenio-records/div[2]/div[8]/invenio-records-form/div/div/form/bootstrap-decorator[14]/fieldset/div/div[1]/a')
+
+    page.select_option('//*[@id="weko-records"]/invenio-files-uploader/invenio-records/div[2]/div[8]/invenio-records-form/div/div/form/bootstrap-decorator[14]/fieldset/div/div[2]/div/div[1]/ol/li/sf-decorator/div/sf-decorator[1]/div/div/select', "string:Accepted")
+    
+    page.click('//*[@id="weko-records"]/invenio-files-uploader/invenio-records/div[2]/div[8]/invenio-records-form/div/div/form/bootstrap-decorator[14]/fieldset/div/div[2]/div/div[1]/ol/li/sf-decorator/div/sf-decorator[2]/div[2]/div/div/input')
+
+    page.click("text=\"28\"")
+
+    page.wait_for_timeout(int(SET_WAIT))
+    page.screenshot(path=f'{"Autotest03_047_1"}.png')
+
     # Click text="Input from author DB"
     page.click("text=\"Input from author DB\"")
 
