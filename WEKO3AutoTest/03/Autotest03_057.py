@@ -65,25 +65,18 @@ def run(playwright):
     # Click text="02"
     page.click("text=\"02\"")
 
-    page.screenshot(path=f'{"Autotest03_043_1"}.png')
-
     # Fill input[name="item_1617186331708.0.subitem_1551255647225"]
     page.fill("input[name=\"item_1617186331708.0.subitem_1551255647225\"]", "登録テストアイテム1")
 
     # Click input[name="item_1617186331708.0.subitem_1551255647225"]
     page.click("input[name=\"item_1617186331708.0.subitem_1551255647225\"]")
 
-    page.screenshot(path=f'{"Autotest03_044_1"}.png')
-
     # Select string:ja
     page.select_option("//div[normalize-space(.)='jaja-Kanaenfritdeeszh-cnzh-twrulamseoarelko']/select", "string:ja")
 
-    page.screenshot(path=f'{"Autotest03_045_1"}.png')
-
     # Select string:conference paper
     page.select_option("//div[starts-with(normalize-space(.), 'conference paperdata paperdepartmental bulletin papereditorialjournal articlenew')]/select", "string:conference paper")
-    page.wait_for_timeout(5000)
-    page.screenshot(path=f'{"Autotest03_046_1"}.png')
+    page.wait_for_timeout(int(SET_WAIT))
 
     # Click text="Input from author DB"
     page.click("text=\"Input from author DB\"")
@@ -101,13 +94,9 @@ def run(playwright):
 
     page.wait_for_timeout(int(SET_WAIT))
 
-    page.screenshot(path=f'{"Autotest03_052_1"}.png')
-
     page.click('//*[@id="weko-records"]/invenio-files-uploader/invenio-records/div[2]/div[9]/div/div[1]/div/button[2]')
 
     page.wait_for_timeout(int(SET_WAIT)*2)
-    
-    page.screenshot(path=f'{"Autotest03_055_1"}.png')
 
         # Go to https://localhost/items/iframe/index/330
     page.goto("https://localhost/items/iframe/index/330")
@@ -148,5 +137,11 @@ def run(playwright):
     context.close()
     browser.close()
 
+    return 0
+
+def test_OK():
+    assert a == 0
+
 with sync_playwright() as playwright:
-    run(playwright)
+    a = run(playwright)
+    test_OK()

@@ -85,7 +85,7 @@ def run(playwright):
     # Resource Type が見える位置に画面を来させる為に、Version Typeをクリック
     page.click("//*[@id='weko-records']/invenio-files-uploader/invenio-records/div[2]/div[8]/invenio-records-form/div/div/form/bootstrap-decorator[17]/fieldset/div/div[1]/a")
 
-    page.wait_for_timeout(5000)
+    page.wait_for_timeout(int(SET_WAIT))
     page.screenshot(path=f'{path.splitext(path.basename(__file__))[0]+"_1"}.png')
 
 
@@ -146,5 +146,11 @@ def run(playwright):
     context.close()
     browser.close()
 
+    return 0
+
+def test_OK():
+    assert a == 0
+
 with sync_playwright() as playwright:
-    run(playwright)
+    a = run(playwright)
+    test_OK()

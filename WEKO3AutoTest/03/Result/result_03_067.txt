@@ -1,0 +1,8 @@
+============================= test session starts =============================
+platform win32 -- Python 3.9.0, pytest-6.2.5, py-1.11.0, pluggy-1.0.0
+rootdir: C:\WEKO3AutoTest\03
+collected 1 item
+
+Autotest03_067.py .                                                      [100%]
+
+======================== 1 passed in 117.06s (0:01:57) ========================
