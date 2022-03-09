@@ -83,7 +83,7 @@ def run(playwright):
                 
     page.wait_for_timeout(int(SET_WAIT))
 
-    page.screenshot(path=f'{path.splitext(path.basename(__file__))[0]+"_1"}.png')
+    page.screenshot(path=f'{path.splitext(path.basename(__file__))[0]+"_1"}_capture.png')
 
     page.click('//*[@id="app-author-search"]/div/div/div[1]/app-author-search/div/div/app-add-author/div[2]/div/div/div/div[4]/div[2]/button[2]')
    

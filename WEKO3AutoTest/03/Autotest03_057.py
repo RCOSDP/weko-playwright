@@ -104,7 +104,7 @@ def run(playwright):
     # Check //div[normalize-space(.)='Index A']/div[2]/input[normalize-space(@type)='checkbox']
     page.check("//div[normalize-space(.)='Index A']/div[2]/input[normalize-space(@type)='checkbox']")
 
-    page.screenshot(path=f'{path.splitext(path.basename(__file__))[0]+"_1"}.png')
+    page.screenshot(path=f'{path.splitext(path.basename(__file__))[0]+"_1"}_capture.png')
 
     # Click text=/.*Next.*/
     page.click("text=/.*Next.*/")
@@ -118,7 +118,7 @@ def run(playwright):
     # Fill textarea[id="input-comment"]
     page.fill("textarea[id=\"input-comment\"]", "AutoTest")
 
-    page.screenshot(path=f'{path.splitext(path.basename(__file__))[0]+"_2"}.png')
+    page.screenshot(path=f'{path.splitext(path.basename(__file__))[0]+"_2"}_capture.png')
 
     # Click text=/.*Quit.*/
     page.click("text=/.*Quit.*/")
@@ -128,7 +128,7 @@ def run(playwright):
 
     page.wait_for_timeout(int(SET_WAIT)*2)
 
-    page.screenshot(path=f'{path.splitext(path.basename(__file__))[0]+"_3"}.png')
+    page.screenshot(path=f'{path.splitext(path.basename(__file__))[0]+"_3"}_capture.png')
 
     # Close page
     page.close()

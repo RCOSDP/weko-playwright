@@ -67,7 +67,7 @@ def run(playwright):
 
     page.wait_for_timeout(int(SET_WAIT))
 
-    page.screenshot(path=f'{path.splitext(path.basename(__file__))[0]+"_1"}.png')
+    page.screenshot(path=f'{path.splitext(path.basename(__file__))[0]+"_1"}_capture.png')
 
     # Click text=/.*Send.*/
     # page.once("dialog", lambda dialog: asyncio.create_task(dialog.dismiss()))
@@ -75,7 +75,7 @@ def run(playwright):
 
     page.wait_for_timeout(int(SET_WAIT))
 
-    page.screenshot(path=f'{path.splitext(path.basename(__file__))[0]+"_2"}.png')
+    page.screenshot(path=f'{path.splitext(path.basename(__file__))[0]+"_2"}_capture.png')
 
     # Close page
     page.close()

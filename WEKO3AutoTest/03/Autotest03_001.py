@@ -63,14 +63,14 @@ def run(playwright):
     file_chooser = fc_info.value
     file_chooser.set_files("sample.pdf")
 
-    page.screenshot(path=f'{"Autotest03_001_1"}.png')
+    page.screenshot(path=f'{"Autotest03_001_1"}_capture.png')
 
     # Click text="Start upload"
     page.click("text=\"Start upload\"")
 
     page.wait_for_timeout(int(SET_WAIT))
 
-    page.screenshot(path=f'{"Autotest03_007_1"}.png')
+    page.screenshot(path=f'{"Autotest03_007_1"}_capture.png')
 
     # Click text=/.*Click to select.*/
     with page.expect_file_chooser() as fc_info:
@@ -83,7 +83,7 @@ def run(playwright):
 
     page.wait_for_timeout(int(SET_WAIT))
 
-    page.screenshot(path=f'{"Autotest03_009_1"}.png')
+    page.screenshot(path=f'{"Autotest03_009_1"}_capture.png')
 
     # Click text=/.*Click to select.*/
     with page.expect_file_chooser() as fc_info:
@@ -96,7 +96,7 @@ def run(playwright):
 
     page.wait_for_timeout(int(SET_WAIT))
 
-    page.screenshot(path=f'{"Autotest03_011_1"}.png')
+    page.screenshot(path=f'{"Autotest03_011_1"}_capture.png')
 
     # Click text=/.*Click to select.*/
     with page.expect_file_chooser() as fc_info:
@@ -109,7 +109,7 @@ def run(playwright):
 
     page.wait_for_timeout(int(SET_WAIT))
 
-    page.screenshot(path=f'{"Autotest03_013_1"}.png')
+    page.screenshot(path=f'{"Autotest03_013_1"}_capture.png')
 
     # Click text=/.*Click to select.*/
     with page.expect_file_chooser() as fc_info:
@@ -122,7 +122,7 @@ def run(playwright):
 
     page.wait_for_timeout(int(SET_WAIT))
 
-    page.screenshot(path=f'{"Autotest03_015_1"}.png')
+    page.screenshot(path=f'{"Autotest03_015_1"}_capture.png')
 
     # Click text=/.*Click to select.*/
     with page.expect_file_chooser() as fc_info:
@@ -135,7 +135,7 @@ def run(playwright):
 
     page.wait_for_timeout(int(SET_WAIT))
 
-    page.screenshot(path=f'{"Autotest03_017_1"}.png')
+    page.screenshot(path=f'{"Autotest03_017_1"}_capture.png')
 
     # Click text=/.*Click to select.*/
     with page.expect_file_chooser() as fc_info:
@@ -148,7 +148,7 @@ def run(playwright):
 
     page.wait_for_timeout(int(SET_WAIT))
 
-    page.screenshot(path=f'{"Autotest03_019_1"}.png')
+    page.screenshot(path=f'{"Autotest03_019_1"}_capture.png')
 
     # Click text=/.*Click to select.*/
     with page.expect_file_chooser() as fc_info:
@@ -161,7 +161,7 @@ def run(playwright):
 
     page.wait_for_timeout(int(SET_WAIT))
 
-    page.screenshot(path=f'{"Autotest03_021_1"}.png')
+    page.screenshot(path=f'{"Autotest03_021_1"}_capture.png')
 
     # Click text=/.*Click to select.*/
     with page.expect_file_chooser() as fc_info:
@@ -174,7 +174,7 @@ def run(playwright):
 
     page.wait_for_timeout(int(SET_WAIT))
 
-    page.screenshot(path=f'{"Autotest03_023_1"}.png')
+    page.screenshot(path=f'{"Autotest03_023_1"}_capture.png')
     
     # Click text=/.*Click to select.*/
     with page.expect_file_chooser() as fc_info:
@@ -184,7 +184,7 @@ def run(playwright):
 
     page.wait_for_timeout(int(SET_WAIT))
 
-    page.screenshot(path=f'{"Autotest03_024_1"}.png')
+    page.screenshot(path=f'{"Autotest03_024_1"}_capture.png')
 
     # Click div[id="step_page"] div[role="document"] >> text=/.*Cancel.*/
     page.click("div[id=\"step_page\"] div[role=\"document\"] >> text=/.*Cancel.*/")
@@ -198,7 +198,7 @@ def run(playwright):
 
     page.wait_for_timeout(int(SET_WAIT))
 
-    page.screenshot(path=f'{"Autotest03_025_1"}.png')
+    page.screenshot(path=f'{"Autotest03_025_1"}_capture.png')
 
         # Click input[name="pubdate"]
     page.click("input[name=\"pubdate\"]")
@@ -206,7 +206,7 @@ def run(playwright):
     # Click text="02"
     page.click("text=\"02\"")
 
-    page.screenshot(path=f'{"Autotest03_043_1"}.png')
+    page.screenshot(path=f'{"Autotest03_043_1"}_capture.png')
 
     # Fill input[name="item_1617186331708.0.subitem_1551255647225"]
     page.fill("input[name=\"item_1617186331708.0.subitem_1551255647225\"]", "登録テストアイテム1")
@@ -214,12 +214,12 @@ def run(playwright):
     # Click input[name="item_1617186331708.0.subitem_1551255647225"]
     page.click("input[name=\"item_1617186331708.0.subitem_1551255647225\"]")
 
-    page.screenshot(path=f'{"Autotest03_044_1"}.png')
+    page.screenshot(path=f'{"Autotest03_044_1"}_capture.png')
 
     # Select string:ja
     page.select_option("//div[normalize-space(.)='jaja-Kanaenfritdeeszh-cnzh-twrulamseoarelko']/select", "string:ja")
 
-    page.screenshot(path=f'{"Autotest03_045_1"}.png')
+    page.screenshot(path=f'{"Autotest03_045_1"}_capture.png')
 
     # Select string:conference paper
     page.select_option("//div[starts-with(normalize-space(.), 'conference paperdata paperdepartmental bulletin papereditorialjournal articlenew')]/select", "string:conference paper")
@@ -227,7 +227,7 @@ def run(playwright):
     page.click("//*[@id='weko-records']/invenio-files-uploader/invenio-records/div[2]/div[8]/invenio-records-form/div/div/form/bootstrap-decorator[17]/fieldset/div/div[1]/a")
 
     page.wait_for_timeout(int(SET_WAIT))
-    page.screenshot(path=f'{"Autotest03_046_1"}.png')
+    page.screenshot(path=f'{"Autotest03_046_1"}_capture.png')
 
     page.click('//*[@id="weko-records"]/invenio-files-uploader/invenio-records/div[2]/div[8]/invenio-records-form/div/div/form/bootstrap-decorator[14]/fieldset/div/div[1]/a')
 
@@ -238,7 +238,7 @@ def run(playwright):
     page.click("text=\"28\"")
 
     page.wait_for_timeout(int(SET_WAIT))
-    page.screenshot(path=f'{"Autotest03_047_1"}.png')
+    page.screenshot(path=f'{"Autotest03_047_1"}_capture.png')
 
     # Click text="Input from author DB"
     page.click("text=\"Input from author DB\"")
@@ -256,14 +256,14 @@ def run(playwright):
 
     page.wait_for_timeout(int(SET_WAIT))
 
-    page.screenshot(path=f'{"Autotest03_052_1"}.png')
+    page.screenshot(path=f'{"Autotest03_052_1"}_capture.png')
 
     page.click('//*[@id="weko-records"]/invenio-files-uploader/invenio-records/div[2]/div[9]/div/div[1]/div/button[2]')
 
     page.wait_for_timeout(int(SET_WAIT))
     page.wait_for_timeout(int(SET_WAIT))
     
-    page.screenshot(path=f'{"Autotest03_055_1"}.png')
+    page.screenshot(path=f'{"Autotest03_055_1"}_capture.png')
 
     # Close page
     page.close()

@@ -85,7 +85,7 @@ def run(playwright):
     page.press("//div[normalize-space(.)='DetailSimplePreview']/select", "ArrowDown")
     page.press("//div[normalize-space(.)='DetailSimplePreview']/select", "ArrowDown")
     page.wait_for_timeout(int(SET_WAIT))
-    page.screenshot(path=f'{"Autotest03_030_1"}.png')
+    page.screenshot(path=f'{"Autotest03_030_1"}_capture.png')
 
     #page.select_option("//div[starts-with(normalize-space(.), 'write your own licenseCreative Commons CC0 1.0 Universal Public Domain Designati')]/select", "string:write your own license")
     page.press("//div[starts-with(normalize-space(.), 'write your own licenseCreative Commons CC0 1.0 Universal Public Domain Designati')]/select", "ArrowDown")
@@ -93,7 +93,7 @@ def run(playwright):
 
 
     page.wait_for_timeout(int(SET_WAIT))
-    page.screenshot(path=f'{"Autotest03_033_1"}.png')
+    page.screenshot(path=f'{"Autotest03_033_1"}_capture.png')
 
     # Click //label[normalize-space(.)='Input Open Access Date']/input[normalize-space(@type)='radio' and normalize-space(@name)='item_1617605131499.0.accessrole']
     page.click("//label[normalize-space(.)='Input Open Access Date']/input[normalize-space(@type)='radio' and normalize-space(@name)='item_1617605131499.0.accessrole']")
@@ -104,7 +104,7 @@ def run(playwright):
     # Click text="05"
     page.click("text=\"28\"")
     page.wait_for_timeout(int(SET_WAIT))
-    page.screenshot(path=f'{"Autotest03_036_1"}.png')
+    page.screenshot(path=f'{"Autotest03_036_1"}_capture.png')
  
     # Close page
     page.close()

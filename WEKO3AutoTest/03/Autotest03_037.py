@@ -63,7 +63,7 @@ def run(playwright):
     file_chooser = fc_info.value
     file_chooser.set_files("sample.xlsx")
 
-    page.screenshot(path=f'{"Autotest03_037_1"}.png')
+    page.screenshot(path=f'{"Autotest03_037_1"}_capture.png')
 
     # Click text="Start upload"
     page.click("text=\"Start upload\"")
@@ -99,7 +99,7 @@ def run(playwright):
     page.click("//label[normalize-space(.)='Registered User Only']")
 
     page.wait_for_timeout(int(SET_WAIT))
-    page.screenshot(path=f'{"Autotest03_037_2"}.png')
+    page.screenshot(path=f'{"Autotest03_037_2"}_capture.png')
  
     # Close page
     page.close()

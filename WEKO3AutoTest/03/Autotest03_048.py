@@ -82,7 +82,7 @@ def run(playwright):
     page.click("text=/.*Creator Identifier.*/")
     page.wait_for_timeout(int(SET_WAIT))
 
-    page.screenshot(path=f'{path.splitext(path.basename(__file__))[0]+"_1"}.png')
+    page.screenshot(path=f'{path.splitext(path.basename(__file__))[0]+"_1"}_capture.png')
 
     # Click text=/.*Bibliographic Information.*/
     page.click("text=/.*Bibliographic Information.*/")
@@ -104,7 +104,7 @@ def run(playwright):
 
     page.wait_for_timeout(int(SET_WAIT))
     
-    page.screenshot(path=f'{"Autotest03_050_1"}.png')
+    page.screenshot(path=f'{"Autotest03_050_1"}_capture.png')
 
 
     page.click('//*[@id="weko-records"]/invenio-files-uploader/invenio-records/div[2]/div[8]/invenio-records-form/div/div/form/bootstrap-decorator[5]/fieldset/div/div[1]/a')
@@ -115,7 +115,7 @@ def run(playwright):
                 
     page.wait_for_timeout(int(SET_WAIT))
     
-    page.screenshot(path=f'{"Autotest03_051_1"}.png')
+    page.screenshot(path=f'{"Autotest03_051_1"}_capture.png')
 
     #page.click('//*[@id="weko-records"]/invenio-files-uploader/invenio-records/div[2]/div[8]/invenio-records-form/div/div/form/bootstrap-decorator[6]/fieldset/div/div[1]/a')
     page.click("text=/.*Access Rights.*/")
@@ -124,13 +124,13 @@ def run(playwright):
 
     page.wait_for_timeout(int(SET_WAIT))
 
-    page.screenshot(path=f'{"Autotest03_053_1"}.png')
+    page.screenshot(path=f'{"Autotest03_053_1"}_capture.png')
 
     page.click('//*[@id="weko-records"]/invenio-files-uploader/invenio-records/div[2]/div[9]/div/div[1]/div/button[2]')
 
     page.wait_for_timeout(int(SET_WAIT))
     
-    page.screenshot(path=f'{"Autotest03_054_1"}.png')
+    page.screenshot(path=f'{"Autotest03_054_1"}_capture.png')
 
     # Close page
     page.close()

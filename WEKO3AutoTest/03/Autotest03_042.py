@@ -65,7 +65,7 @@ def run(playwright):
     file_chooser = fc_info.value
     file_chooser.set_files("sample.txt")
 
-    page.screenshot(path=f'{path.splitext(path.basename(__file__))[0]+"_1"}.png')
+    page.screenshot(path=f'{path.splitext(path.basename(__file__))[0]+"_1"}_capture.png')
 
     # Click text="Start upload"
     page.click("text=\"Start upload\"")
@@ -101,7 +101,7 @@ def run(playwright):
     page.click("//label[normalize-space(.)='Do not Publish']")
 
     page.wait_for_timeout(int(SET_WAIT))
-    page.screenshot(path=f'{path.splitext(path.basename(__file__))[0]+"_2"}.png')
+    page.screenshot(path=f'{path.splitext(path.basename(__file__))[0]+"_2"}_capture.png')
  
     # Close page
     page.close()

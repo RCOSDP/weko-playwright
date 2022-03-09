@@ -63,7 +63,7 @@ def run(playwright):
     file_chooser = fc_info.value
     file_chooser.set_files("sample.png")
 
-    # page.screenshot(path=f'{"Autotest03_001_1"}.png')
+    # page.screenshot(path=f'{"Autotest03_001_1"}_capture.png')
 
     # Click text="Start upload"
     page.click("text=\"Start upload\"")
@@ -80,7 +80,7 @@ def run(playwright):
     page.fill("input[name=\"item_1617605131499.0.version\"]", "ver1")
 
     page.wait_for_timeout(int(SET_WAIT))
-    #page.screenshot(path=f'{"Autotest03_028_1"}.png')
+    #page.screenshot(path=f'{"Autotest03_028_1"}_capture.png')
 
     # Press ArrowDown
     #page.select_option("//div[normalize-space(.)='DetailSimplePreview']/select", "string:Preview")
@@ -88,7 +88,7 @@ def run(playwright):
     page.press("//div[normalize-space(.)='DetailSimplePreview']/select", "ArrowDown")
     page.press("//div[normalize-space(.)='DetailSimplePreview']/select", "ArrowDown")
     page.wait_for_timeout(int(SET_WAIT))
-    page.screenshot(path=f'{"Autotest03_031_1"}.png')
+    page.screenshot(path=f'{"Autotest03_031_1"}_capture.png')
 
     #page.select_option("//div[starts-with(normalize-space(.), 'write your own licenseCreative Commons CC0 1.0 Universal Public Domain Designati')]/select", "string:write your own license")
     page.press("//div[starts-with(normalize-space(.), 'write your own licenseCreative Commons CC0 1.0 Universal Public Domain Designati')]/select", "ArrowDown")
@@ -96,13 +96,13 @@ def run(playwright):
 
 
     page.wait_for_timeout(int(SET_WAIT))
-    # page.screenshot(path=f'{"Autotest03_033_1"}.png')
+    # page.screenshot(path=f'{"Autotest03_033_1"}_capture.png')
 
     # Click //label[normalize-space(.)='Registered User Only']      
     page.click("//label[normalize-space(.)='Registered User Only']")
 
     page.wait_for_timeout(int(SET_WAIT))
-    page.screenshot(path=f'{"Autotest03_041_1"}.png')
+    page.screenshot(path=f'{"Autotest03_041_1"}_capture.png')
  
     # Close page
     page.close()
