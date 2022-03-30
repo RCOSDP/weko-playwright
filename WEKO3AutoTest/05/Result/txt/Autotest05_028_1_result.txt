@@ -1,0 +1,14 @@
+============================= test session starts =============================
+platform win32 -- Python 3.9.0, pytest-6.2.5, py-1.11.0, pluggy-1.0.0
+rootdir: C:\WEKO3AutoTest\05
+collected 1 item
+
+Autotest05_028.py .                                                      [100%]
+
+============================== warnings summary ===============================
+Autotest05_028.py:48
+  C:\WEKO3AutoTest\05\Autotest05_028.py:48: DeprecationWarning: invalid escape sequence \ 
+    page.fill("input[name=\"q\"]", "+ - = && || ! ( ) { } [ ] ^  ~ * ? : \ / ")
+
+-- Docs: https://docs.pytest.org/en/stable/warnings.html
+======================== 1 passed, 1 warning in 29.76s ========================

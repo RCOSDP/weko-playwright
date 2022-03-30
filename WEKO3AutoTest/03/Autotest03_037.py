@@ -1,7 +1,8 @@
-#from json import load
+__file__
 import pytest
 import configparser
 from playwright.sync_api import sync_playwright
+from os import path
 
 config_ini = configparser.ConfigParser()
 config_ini.read( "conf.ini", encoding = "utf-8" )

@@ -1,4 +1,3 @@
-#from json import load
 __file__
 import pytest
 import configparser
@@ -65,20 +64,14 @@ def run(playwright):
     # Click text="02"
     page.click("text=\"02\"")
 
-    #page.screenshot(path=f'{"Autotest03_043_1"}_capture.png')
-
     # Fill input[name="item_1617186331708.0.subitem_1551255647225"]
     page.fill("input[name=\"item_1617186331708.0.subitem_1551255647225\"]", "登録テストアイテム1")
 
     # Click input[name="item_1617186331708.0.subitem_1551255647225"]
     page.click("input[name=\"item_1617186331708.0.subitem_1551255647225\"]")
 
-    #page.screenshot(path=f'{"Autotest03_044_1"}_capture.png')
-
     # Select string:ja
     page.select_option("//div[normalize-space(.)='jaja-Kanaenfritdeeszh-cnzh-twrulamseoarelko']/select", "string:ja")
-
-    #page.screenshot(path=f'{"Autotest03_045_1"}_capture.png')
 
     # Select string:conference paper
     page.select_option("//div[starts-with(normalize-space(.), 'conference paperdata paperdepartmental bulletin papereditorialjournal articlenew')]/select", "string:book")
@@ -92,8 +85,6 @@ def run(playwright):
     page.click('//*[@id="weko-records"]/invenio-files-uploader/invenio-records/div[2]/div[9]/div/div[1]/div/button[2]')
 
     page.wait_for_timeout(int(SET_WAIT)*2)
-    
-    #page.screenshot(path=f'{"Autotest03_055_1"}_capture.png')
 
     # Check //div[normalize-space(.)='Index E(Embargo)']/div[2]/input[normalize-space(@type)='checkbox']
     page.check("//div[normalize-space(.)='Index E(Embargo)']/div[2]/input[normalize-space(@type)='checkbox']")
@@ -128,9 +119,6 @@ def run(playwright):
 
     # Click text=/.*Next.*/
     page.click("text=/.*Next.*/")
-
-    # Fill text=/.*JaLC DOI.*/ >> input[name="identifier_grant"]
-    # page.fill("text=/.*JaLC DOI.*/ >> input[name=\"identifier_grant\"]", "1")
 
     # Click //td[normalize-space(.)='JaLC DOI']
     page.click("//td[normalize-space(.)='JaLC DOI']")

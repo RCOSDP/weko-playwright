@@ -1,4 +1,4 @@
-#from json import load
+__file__
 import pytest
 import configparser
 from playwright.sync_api import sync_playwright

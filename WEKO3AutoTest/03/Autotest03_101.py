@@ -1,5 +1,4 @@
 # 事前に承認待ちのワークフローを一つは作成しておくことが前提
-#from json import load
 __file__
 import pytest
 import configparser
@@ -55,14 +54,14 @@ def run(playwright):
 
     page.wait_for_timeout(int(SET_WAIT))
 
-    page.screenshot(path=f'{path.splitext(path.basename(__file__))[0]+"_1"}.png')
+    page.screenshot(path=f'{path.splitext(path.basename(__file__))[0]+"_1"}_capture.png')
 
     # Click div[id="step_page"] >> text="Approval"
     page.click("div[id=\"step_page\"] >> text=\"Approval\"")
 
-    page.wait_for_timeout(int(SET_WAIT)*2)
+    page.wait_for_timeout(int(SET_WAIT)*4)
 
-    page.screenshot(path=f'{path.splitext(path.basename(__file__))[0]+"_2"}.png')
+    page.screenshot(path=f'{path.splitext(path.basename(__file__))[0]+"_2"}_capture.png')
 
     # Close page
     page.close()
@@ -71,5 +70,11 @@ def run(playwright):
     context.close()
     browser.close()
 
+    return 0
+
+def test_OK():
+    assert a == 0
+
 with sync_playwright() as playwright:
-    run(playwright)
+    a = run(playwright)
+    test_OK()

@@ -1,4 +1,5 @@
-#from json import load
+# Replaceボタンが表示されるように、Item Listから編集状態にしたワークフローを作成し、
+# iniファイルで、そのワークフローを指定して実施してください
 __file__
 import pytest
 import configparser
@@ -43,26 +44,22 @@ def run(playwright):
     # Click //div[normalize-space(.)='Index A']/div[1]
     page.click("//*[@id='index-background']/app-tree-items/app-tree-list2/div/div/div/tree/tree-internal/ul/li/tree-internal[1]/ul/li/div/div[2]/span")
 
-    # Click text="Index A-1"
-    # with page.expect_navigation(url="https://localhost/search?page=1&size=20&sort=controlnumber&timestamp=1645775555.2401288&search_type=2&q=1029&time=1645775554713"):
-    #with page.expect_navigation():
-        #page.click("text=\"Index A-1\"")
-
     # Click text="title"        
-    #　page.click("//*[@id='index_item_list']/div[2]/div/div/invenio-search-results/div/div[1]/div/a")
-    page.click("//*[@id='index_item_list']/div[2]/div/div/invenio-search-results/div[2]/div[1]/div/a")
+    #　一度編集すると、同じアイテムは編集できなくなるので「div[5]/div[1]/div/a"」のdiv[5]の値を変更すること
+    page.click("//*[@id='index_item_list']/div[2]/div/div/invenio-search-results/div[5]/div[1]/div/a")
+                
     # assert page.url == "https://localhost/records/301"
 
     page.wait_for_timeout(int(SET_WAIT)*2)
 
-    page.screenshot(path=f'{path.splitext(path.basename(__file__))[0]+"_1"}.png')
+    page.screenshot(path=f'{path.splitext(path.basename(__file__))[0]+"_1"}_capture.png')
 
     page.wait_for_timeout(int(SET_WAIT))
 
     # Click text=/.*Edit.*/
     page.click("//*[@id='btn_edit']")
     # assert page.url == "https://localhost/records/301#/!"
-    page.screenshot(path=f'{path.splitext(path.basename(__file__))[0]+"_2"}.png')
+    page.screenshot(path=f'{path.splitext(path.basename(__file__))[0]+"_2"}_capture.png')
 
     # Press ArrowDown
     # page.press("//div[normalize-space(.)='jaja-Kanaenfritdeeszh-cnzh-twrulamseoarelko']/select", "ArrowDown")
@@ -72,10 +69,7 @@ def run(playwright):
     # page.fill("input[name=\"radioVersionSelect\"]", "update")
     page.click("//*[@id='react-component-version']/div/div/div/div[1]/input")
 
-    # Click input[name="radioVersionSelect"]
-    # page.click("input[name=\"radioVersionSelect\"]")
-
-    page.screenshot(path=f'{path.splitext(path.basename(__file__))[0]+"_3"}.png')
+    page.screenshot(path=f'{path.splitext(path.basename(__file__))[0]+"_3"}_capture.png')
 
     # Click text=/.*Next.*/
     page.click("text=/.*Next.*/")
@@ -88,9 +82,9 @@ def run(playwright):
     with page.expect_navigation():
         page.click("text=/.*Next.*/")
 
-    page.wait_for_timeout(int(SET_WAIT)*2)
+    page.wait_for_timeout(int(SET_WAIT)*4)
 
-    page.screenshot(path=f'{path.splitext(path.basename(__file__))[0]+"_4"}.png')
+    page.screenshot(path=f'{path.splitext(path.basename(__file__))[0]+"_4"}_capture.png')
 
     # Close page
     page.close()
@@ -99,5 +93,11 @@ def run(playwright):
     context.close()
     browser.close()
 
+    return 0
+
+def test_OK():
+    assert a == 0
+
 with sync_playwright() as playwright:
-    run(playwright)
+    a = run(playwright)
+    test_OK()

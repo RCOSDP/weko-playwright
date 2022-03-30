@@ -1,7 +1,8 @@
-#from json import load
+__file__
 import pytest
 import configparser
 from playwright.sync_api import sync_playwright
+from os import path
 
 config_ini = configparser.ConfigParser()
 config_ini.read( "conf.ini", encoding = "utf-8" )
@@ -190,9 +191,6 @@ def run(playwright):
     page.click("div[id=\"step_page\"] div[role=\"document\"] >> text=/.*Cancel.*/")
 
     # Click //tr[normalize-space(.)='sample.png ... 28 Kb 100 % Processing... Error ']/td[4]/a/i
-    # with page.expect_navigation(url="https://localhost/workflow/activity/detail/A-20220203-00001"):
-    # with page.expect_navigation():
-    # page.click("//tr[normalize-space(.)='sample.pdf ... 43 Kb 100 % Processing... Error ']/td[4]/a/i")
     page.click('//*[@id="file_upload"]/div/invenio-files-list/div/table/tbody/tr[2]/td[4]/a/i')
     #//*[@id="file_upload"]/div/invenio-files-list/div/table/tbody/tr[2]
 

@@ -1,5 +1,4 @@
 # iniファイルでSETWFDAYをNEWに、ACTIVELOCKをOFFにして実施してください
-#from json import load
 __file__
 import pytest
 import configparser
@@ -32,7 +31,7 @@ def run(playwright):
     # assert page.url == "https://localhost/login/?next=%2F"
 
     # Fill input[name="email"]
-    page.fill("input[name=\"email\"]", "wekosoftware@nii.ac.jp")
+    page.fill("input[name=\"email\"]", "comadmin@example.org")
 
     # Fill input[name="password"]
     page.fill("input[name=\"password\"]", "uspass123")
@@ -66,20 +65,14 @@ def run(playwright):
     # Click text="02"
     page.click("text=\"02\"")
 
-    #page.screenshot(path=f'{"Autotest03_043_1"}.png')
-
     # Fill input[name="item_1617186331708.0.subitem_1551255647225"]
     page.fill("input[name=\"item_1617186331708.0.subitem_1551255647225\"]", "登録テストアイテム1")
 
     # Click input[name="item_1617186331708.0.subitem_1551255647225"]
     page.click("input[name=\"item_1617186331708.0.subitem_1551255647225\"]")
 
-    #page.screenshot(path=f'{"Autotest03_044_1"}.png')
-
     # Select string:ja
     page.select_option("//div[normalize-space(.)='jaja-Kanaenfritdeeszh-cnzh-twrulamseoarelko']/select", "string:ja")
-
-    #page.screenshot(path=f'{"Autotest03_045_1"}.png')
 
     # Select string:conference paper
     page.select_option("//div[starts-with(normalize-space(.), 'conference paperdata paperdepartmental bulletin papereditorialjournal articlenew')]/select", "string:workflow")
@@ -87,21 +80,19 @@ def run(playwright):
     page.click("//*[@id='weko-records']/invenio-files-uploader/invenio-records/div[2]/div[8]/invenio-records-form/div/div/form/bootstrap-decorator[17]/fieldset/div/div[1]/a")
 
     page.wait_for_timeout(int(SET_WAIT))
-    page.screenshot(path=f'{path.splitext(path.basename(__file__))[0]+"_1"}.png')
+    page.screenshot(path=f'{path.splitext(path.basename(__file__))[0]+"_1"}_capture.png')
 
 
     page.click('//*[@id="weko-records"]/invenio-files-uploader/invenio-records/div[2]/div[9]/div/div[1]/div/button[2]')
 
     page.wait_for_timeout(int(SET_WAIT)*2)
-    
-    #page.screenshot(path=f'{"Autotest03_055_1"}.png')
 
     # Check //div[normalize-space(.)='Index E(Embargo)']/div[2]/input[normalize-space(@type)='checkbox']
     page.check("//div[normalize-space(.)='Index E(Embargo)']/div[2]/input[normalize-space(@type)='checkbox']")
 
     page.wait_for_timeout(int(SET_WAIT))
 
-    page.screenshot(path=f'{path.splitext(path.basename(__file__))[0]+"_2"}.png')
+    page.screenshot(path=f'{path.splitext(path.basename(__file__))[0]+"_2"}_capture.png')
 
     # Click text=/.*Next.*/
     page.click("text=/.*Next.*/")
@@ -114,7 +105,7 @@ def run(playwright):
 
     page.wait_for_timeout(int(SET_WAIT))
 
-    page.screenshot(path=f'{path.splitext(path.basename(__file__))[0]+"_3"}.png')
+    page.screenshot(path=f'{path.splitext(path.basename(__file__))[0]+"_3"}_capture.png')
 
     # Click text=/.*Next.*/
     page.click("text=/.*Next.*/")
@@ -130,15 +121,12 @@ def run(playwright):
     # Click text=/.*Next.*/
     page.click("text=/.*Next.*/")
 
-    # Fill text=/.*JaLC DOI.*/ >> input[name="identifier_grant"]
-    # page.fill("text=/.*JaLC DOI.*/ >> input[name=\"identifier_grant\"]", "1")
-
     # Click //td[normalize-space(.)='JaLC DOI']
     page.click("//td[normalize-space(.)='JaLC DOI']")
 
     page.wait_for_timeout(int(SET_WAIT))
 
-    page.screenshot(path=f'{path.splitext(path.basename(__file__))[0]+"_4"}.png')
+    page.screenshot(path=f'{path.splitext(path.basename(__file__))[0]+"_4"}_capture.png')
 
     # Close page
     page.close()
@@ -147,5 +135,11 @@ def run(playwright):
     context.close()
     browser.close()
 
+    return 0
+
+def test_OK():
+    assert a == 0
+
 with sync_playwright() as playwright:
-    run(playwright)
+    a = run(playwright)
+    test_OK()

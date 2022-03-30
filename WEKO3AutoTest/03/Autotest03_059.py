@@ -1,4 +1,3 @@
-#from json import load
 __file__
 import pytest
 import configparser
@@ -70,7 +69,6 @@ def run(playwright):
     page.screenshot(path=f'{path.splitext(path.basename(__file__))[0]+"_1"}_capture.png')
 
     # Click text=/.*Send.*/
-    # page.once("dialog", lambda dialog: asyncio.create_task(dialog.dismiss()))
     page.click("text=/.*Send.*/")
 
     page.wait_for_timeout(int(SET_WAIT))

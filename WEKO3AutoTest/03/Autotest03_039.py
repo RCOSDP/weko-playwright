@@ -1,4 +1,3 @@
-#from json import load
 __file__
 import pytest
 import configparser

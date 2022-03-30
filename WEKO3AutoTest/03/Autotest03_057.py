@@ -1,4 +1,3 @@
-#from json import load
 __file__
 import pytest
 import configparser
@@ -108,9 +107,6 @@ def run(playwright):
 
     # Click text=/.*Next.*/
     page.click("text=/.*Next.*/")
-
-    # Go to https://localhost/workflow/iframe/success
-    # page.goto("https://localhost/workflow/iframe/success")
 
     # Click textarea[id="input-comment"]
     page.click("textarea[id=\"input-comment\"]")

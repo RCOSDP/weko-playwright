@@ -1,7 +1,8 @@
-#from json import load
+__file__
 import pytest
 import configparser
 from playwright.sync_api import sync_playwright
+from os import path
 
 config_ini = configparser.ConfigParser()
 config_ini.read( "conf.ini", encoding = "utf-8" )
@@ -63,8 +64,6 @@ def run(playwright):
     file_chooser = fc_info.value
     file_chooser.set_files("sample.png")
 
-    # page.screenshot(path=f'{"Autotest03_001_1"}_capture.png')
-
     # Click text="Start upload"
     page.click("text=\"Start upload\"")
 
@@ -80,7 +79,6 @@ def run(playwright):
     page.fill("input[name=\"item_1617605131499.0.version\"]", "ver1")
 
     page.wait_for_timeout(int(SET_WAIT))
-    #page.screenshot(path=f'{"Autotest03_028_1"}_capture.png')
 
     # Press ArrowDown
     #page.select_option("//div[normalize-space(.)='DetailSimplePreview']/select", "string:Preview")
@@ -96,7 +94,6 @@ def run(playwright):
 
 
     page.wait_for_timeout(int(SET_WAIT))
-    # page.screenshot(path=f'{"Autotest03_033_1"}_capture.png')
 
     # Click //label[normalize-space(.)='Registered User Only']      
     page.click("//label[normalize-space(.)='Registered User Only']")

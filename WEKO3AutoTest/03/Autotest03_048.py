@@ -1,4 +1,3 @@
-#from json import load
 __file__
 import pytest
 import configparser
@@ -75,10 +74,6 @@ def run(playwright):
 
     page.click('//*[@id="input_button_0"]')
 
-    # page.click('//*[@id="btnModalClose"]')
-
-    #page.click('//*[@id="weko-records"]/invenio-files-uploader/invenio-records/div[2]/div[8]/invenio-records-form/div/div/form/bootstrap-decorator[4]/fieldset/div/div[2]/div/div[1]/ol/li/sf-decorator/div/sf-decorator[2]/fieldset/div/div[1]/a')
-                #//*[@id="weko-records"]/invenio-files-uploader/invenio-records/div[2]/div[8]/invenio-records-form/div/div/form/bootstrap-decorator[5]/fieldset/div/div[2]/div/div[1]/ol/li/sf-decorator/div/sf-decorator[2]/fieldset/div/div[1]/a
     page.click("text=/.*Creator Identifier.*/")
     page.wait_for_timeout(int(SET_WAIT))
 
@@ -117,7 +112,6 @@ def run(playwright):
     
     page.screenshot(path=f'{"Autotest03_051_1"}_capture.png')
 
-    #page.click('//*[@id="weko-records"]/invenio-files-uploader/invenio-records/div[2]/div[8]/invenio-records-form/div/div/form/bootstrap-decorator[6]/fieldset/div/div[1]/a')
     page.click("text=/.*Access Rights.*/")
 
     page.press('//*[@id="weko-records"]/invenio-files-uploader/invenio-records/div[2]/div[8]/invenio-records-form/div/div/form/bootstrap-decorator[6]/fieldset/div/div[2]/sf-decorator[1]/div/div/select', "ArrowDown")

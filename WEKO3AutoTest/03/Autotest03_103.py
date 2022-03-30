@@ -1,4 +1,3 @@
-#from json import load
 __file__
 import pytest
 import configparser
@@ -50,7 +49,7 @@ def run(playwright):
 
     page.wait_for_timeout(int(SET_WAIT))
 
-    page.screenshot(path=f'{path.splitext(path.basename(__file__))[0]+"_1"}.png')
+    page.screenshot(path=f'{path.splitext(path.basename(__file__))[0]+"_1"}_capture.png')
 
     # Click //a[normalize-space(.)='Add Filter']/strong
     page.click("//a[normalize-space(.)='Add Filter']/strong")
@@ -67,7 +66,7 @@ def run(playwright):
 
     page.wait_for_timeout(int(SET_WAIT)*2)
 
-    page.screenshot(path=f'{"Autotest03_104_1"}.png')
+    page.screenshot(path=f'{"Autotest03_104_1"}_capture.png')
 
     # Close page
     page.close()
@@ -76,5 +75,11 @@ def run(playwright):
     context.close()
     browser.close()
 
+    return 0
+
+def test_OK():
+    assert a == 0
+
 with sync_playwright() as playwright:
-    run(playwright)
+    a = run(playwright)
+    test_OK()

@@ -1,4 +1,3 @@
-#from json import load
 __file__
 import pytest
 import configparser
@@ -31,7 +30,7 @@ def run(playwright):
     # assert page.url == "https://localhost/login/?next=%2F"
 
     # Fill input[name="email"]
-    page.fill("input[name=\"email\"]", "wekosoftware@nii.ac.jp")
+    page.fill("input[name=\"email\"]", "comadmin@example.org")
 
     # Fill input[name="password"]
     page.fill("input[name=\"password\"]", "uspass123")
@@ -61,7 +60,7 @@ def run(playwright):
 
     page.wait_for_timeout(int(SET_WAIT)*2)
 
-    page.screenshot(path=f'{path.splitext(path.basename(__file__))[0]+"_1"}.png')
+    page.screenshot(path=f'{path.splitext(path.basename(__file__))[0]+"_1"}_capture.png')
 
     page.wait_for_timeout(int(SET_WAIT))
 
@@ -73,7 +72,7 @@ def run(playwright):
 
     page.wait_for_timeout(int(SET_WAIT))
 
-    page.screenshot(path=f'{path.splitext(path.basename(__file__))[0]+"_2"}.png')
+    page.screenshot(path=f'{path.splitext(path.basename(__file__))[0]+"_2"}_capture.png')
 
     # Fill input[name="radioVersionSelect"]
     # page.fill("input[name=\"radioVersionSelect\"]", "update")
@@ -81,7 +80,7 @@ def run(playwright):
 
     page.wait_for_timeout(int(SET_WAIT))
 
-    page.screenshot(path=f'{path.splitext(path.basename(__file__))[0]+"_3"}.png')
+    page.screenshot(path=f'{path.splitext(path.basename(__file__))[0]+"_3"}_capture.png')
 
     # Click text=/.*Next.*/
     page.click("text=/.*Next.*/")
@@ -89,7 +88,7 @@ def run(playwright):
 
     page.wait_for_timeout(int(SET_WAIT))
 
-    page.screenshot(path=f'{path.splitext(path.basename(__file__))[0]+"_4"}.png')
+    page.screenshot(path=f'{path.splitext(path.basename(__file__))[0]+"_4"}_capture.png')
 
     # Close page
     page.close()
@@ -98,5 +97,11 @@ def run(playwright):
     context.close()
     browser.close()
 
+    return 0
+
+def test_OK():
+    assert a == 0
+
 with sync_playwright() as playwright:
-    run(playwright)
+    a = run(playwright)
+    test_OK()

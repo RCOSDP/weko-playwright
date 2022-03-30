@@ -1,4 +1,3 @@
-#from json import load
 __file__
 import pytest
 import configparser
@@ -43,20 +42,14 @@ def run(playwright):
     # Click //div[normalize-space(.)='Index A']/div[1]
     page.click("//*[@id='index-background']/app-tree-items/app-tree-list2/div/div/div/tree/tree-internal/ul/li/tree-internal[1]/ul/li/div/div[2]/span")
 
-    # Click text="Index A-1"
-    # with page.expect_navigation(url="https://localhost/search?page=1&size=20&sort=controlnumber&timestamp=1645775555.2401288&search_type=2&q=1029&time=1645775554713"):
-    #with page.expect_navigation():
-        #page.click("text=\"Index A-1\"")
 
     # Click text="title"        
     #　page.click("//*[@id='index_item_list']/div[2]/div/div/invenio-search-results/div/div[1]/div/a")
     page.click("//*[@id='index_item_list']/div[2]/div/div/invenio-search-results/div[10]/div[1]/div/a")
-                
-    # assert page.url == "https://localhost/records/301"
 
     page.wait_for_timeout(int(SET_WAIT)*2)
 
-    page.screenshot(path=f'{path.splitext(path.basename(__file__))[0]+"_1"}.png')
+    page.screenshot(path=f'{path.splitext(path.basename(__file__))[0]+"_1"}_capture.png')
 
     page.wait_for_timeout(int(SET_WAIT))
 
@@ -66,14 +59,14 @@ def run(playwright):
     page.wait_for_timeout(int(SET_WAIT)*2)
     
     # assert page.url == "https://localhost/records/301#/!"
-    page.screenshot(path=f'{path.splitext(path.basename(__file__))[0]+"_2"}.png')
+    page.screenshot(path=f'{path.splitext(path.basename(__file__))[0]+"_2"}_capture.png')
 
     # Click text = OK 
     page.click("//html/body/div[5]/div/div/div[3]/button[1]")
 
     page.wait_for_timeout(int(SET_WAIT))
 
-    page.screenshot(path=f'{path.splitext(path.basename(__file__))[0]+"_3"}.png')
+    page.screenshot(path=f'{path.splitext(path.basename(__file__))[0]+"_3"}_capture.png')
 
     # Close page
     page.close()
@@ -82,5 +75,11 @@ def run(playwright):
     context.close()
     browser.close()
 
+    return 0
+
+def test_OK():
+    assert a == 0
+
 with sync_playwright() as playwright:
-    run(playwright)
+    a = run(playwright)
+    test_OK()

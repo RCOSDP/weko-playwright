@@ -1,7 +1,8 @@
-#from json import load
+__file__
 import pytest
 import configparser
 from playwright.sync_api import sync_playwright
+from os import path
 
 config_ini = configparser.ConfigParser()
 config_ini.read( "conf.ini", encoding = "utf-8" )
@@ -75,8 +76,6 @@ def run(playwright):
     page.click('//*[@id="weko-records"]/invenio-files-uploader/invenio-records/div[2]/div[8]/invenio-records-form/div/div/form/bootstrap-decorator[1]/fieldset/div/div[2]/div/div[1]/ol/li[1]/sf-decorator/div/sf-decorator[2]/fieldset/div/div[1]/a')
 
     page.select_option("//div[normalize-space(.)='abstractsummaryfulltextthumbnailother']/select", "string:abstract")
-    #page.press("//div[normalize-space(.)='abstractsummaryfulltextthumbnailother']/select", "ArrowDown")
-    #page.press("//div[normalize-space(.)='abstractsummaryfulltextthumbnailother']/select", "ArrowDown")
     page.wait_for_timeout(int(SET_WAIT))
     page.screenshot(path=f'{"Autotest03_026_1"}_capture.png')
 
