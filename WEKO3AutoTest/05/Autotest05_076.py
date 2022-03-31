@@ -28,55 +28,26 @@ def run(playwright):
     page.goto(WEKO_URL,timeout=int(SET_TIMEOUT))
 
     page.click("text=\"Top\"")
-   
-    # Click text=/.*Full text.*/
-    page.click("text=/.*Full text.*/")
-
-    # Click text="Search"
-    # with page.expect_navigation(url="https://localhost/search?page=1&size=20&sort=-createdate&timestamp=1647225954.063391&search_type=0&q=登録テスト"):
-    with page.expect_navigation():
-        page.click("text=\"Search\"")
 
     page.wait_for_timeout(int(SET_WAIT))
 
     page.screenshot(path=f'{path.splitext(path.basename(__file__))[0]+"_1"}_capture.png')
 
-    page.click('//*[@id="index_item_list"]/div[2]/div/div/invenio-search-results/div[2]/div[1]/div/a')
-
-    # Click text=/.*Full text.*/
-    page.click("text=/.*Full text.*/")
-
+    # Click //div[normalize-space(.)='Index A']/div[1]
+    # page.click("//div[normalize-space(.)='Index A']/div[1]")
+    page.click('//*[@id="index-background"]/app-tree-items/app-tree-list2/div/div/div/tree/tree-internal/ul/li/tree-internal[1]/ul/li/div/div[1]')
+    
     page.wait_for_timeout(int(SET_WAIT))
 
     page.screenshot(path=f'{path.splitext(path.basename(__file__))[0]+"_2"}_capture.png')
 
-    #page.click('//*[@id="download-7834cc48-5f8c-4432-a1e8-f95899cb42fa"]')
-    page.click('//*[@id="detail-item"]/table/tbody/tr/td[2]/span/a')
-    
-    # Click text=/.*Full text.*/
-    page.click("text=/.*Full text.*/")
+    # Click //div[normalize-space(.)='Index A']/div[1]
+    # page.click("//div[normalize-space(.)='Index A']/div[1]")
+    page.click('//*[@id="index-background"]/app-tree-items/app-tree-list2/div/div/div/tree/tree-internal/ul/li/tree-internal[1]/ul/li/div/div[1]')
 
     page.wait_for_timeout(int(SET_WAIT))
 
-    page.screenshot(path=f'{path.splitext(path.basename(__file__))[0]+"_3"}_capture.png')
-
-    page.click('//*[@id="views-details"]')
-    
-    # Click text=/.*Full text.*/
-    page.click("text=/.*Full text.*/")
-
-    page.wait_for_timeout(int(SET_WAIT))
-
-    page.screenshot(path=f'{"Autotest05_051_1"}_capture.png')
-
-    page.click('//*[@id="detail-item"]/table/tbody/tr/td[4]/a[2]/button')
-    
-    # Click text=/.*Full text.*/
-    page.click("text=/.*Full text.*/")
-
-    page.wait_for_timeout(int(SET_WAIT))
-
-    page.screenshot(path=f'{"Autotest05_049_1"}_capture.png')
+    page.screenshot(path=f'{"Autotest05_077_1"}_capture.png')
 
     # Close page
     page.close()

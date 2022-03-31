@@ -10,10 +10,12 @@ print("SET_TIMEOUT = " + config_ini['DEFAULT']['SETTIMEOUT'])
 print("SET_WAIT = " + config_ini['DEFAULT']['SETWAIT'])
 print("SET_WAIT = " + config_ini['DEFAULT']['SETWFDAY'])
 print("ACTIVE_LOCK = " + config_ini['DEFAULT']['ACTIVELOCK'])
+print("WEKO_URL = " + config_ini['DEFAULT']['WEKOURL'])
 SET_TIMEOUT = config_ini['DEFAULT']['SETTIMEOUT']
 SET_WAIT = config_ini['DEFAULT']['SETWAIT']
 SET_WFDAY = config_ini['DEFAULT']['SETWFDAY']
 ACTIVE_LOCK = config_ini['DEFAULT']['ACTIVELOCK']
+WEKO_URL = config_ini['DEFAULT']['WEKOURL']
 
 def run(playwright):
     browser = playwright.chromium.launch(headless=False)
@@ -23,7 +25,7 @@ def run(playwright):
     page = context.new_page()
 
     # Go to https://localhost/
-    page.goto("https://localhost/",timeout=int(SET_TIMEOUT))
+    page.goto(WEKO_URL,timeout=int(SET_TIMEOUT))
 
     page.click("text=/.*Top.*/")
     

@@ -41,11 +41,14 @@ def run(playwright):
     page.click("text=/.*Log In.*/")
     # assert page.url == "https://localhost/"
 
-    # Click text="Workflow"
-    page.click("text=\"Workflow\"")
-    # assert page.url == "https://localhost/workflow/"
+    page.click("text=\"Top\"")
 
-    page.click("text=\"ToDo\"")
+    # Click //button
+    page.click("//button")
+
+    # Click text=/.*Administration.*/
+    page.click("text=/.*Administration.*/")
+    # assert page.url == "https://localhost/admin/"
 
     page.wait_for_timeout(int(SET_WAIT))
 

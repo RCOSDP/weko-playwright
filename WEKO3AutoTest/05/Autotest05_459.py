@@ -32,7 +32,7 @@ def run(playwright):
     # assert page.url == "https://localhost/login/?next=%2F"
 
     # Fill input[name="email"]
-    page.fill("input[name=\"email\"]", "comadmin@example.org")
+    page.fill("input[name=\"email\"]", "wekosoftware@nii.ac.jp")
 
     # Fill input[name="password"]
     page.fill("input[name=\"password\"]", "uspass123")
@@ -41,15 +41,32 @@ def run(playwright):
     page.click("text=/.*Log In.*/")
     # assert page.url == "https://localhost/"
 
-    # Click text="Workflow"
-    page.click("text=\"Workflow\"")
-    # assert page.url == "https://localhost/workflow/"
+    page.click("text=\"Top\"")
 
-    page.click("text=\"ToDo\"")
+    # Click //button
+    page.click("//button")
+
+    # Click text=/.*Administration.*/
+    page.click("text=/.*Administration.*/")
+    # assert page.url == "https://localhost/admin/"
 
     page.wait_for_timeout(int(SET_WAIT))
 
     page.screenshot(path=f'{path.splitext(path.basename(__file__))[0]+"_1"}_capture.png')
+
+        # Click text="Web Design"
+    page.click("text=\"Web Design\"")
+
+    # Click text="Page Layout"
+    page.click("text=\"Page Layout\"")
+    # assert page.url == "https://localhost/admin/widgetdesign/"
+
+    # Press ArrowDown
+    page.press('//*[@id="repository-id"]', "ArrowDown")
+    
+    page.wait_for_timeout(int(SET_WAIT))
+
+    page.screenshot(path=f'{path.splitext(path.basename(__file__))[0]+"_2"}_capture.png')
 
     # Close page
     page.close()
