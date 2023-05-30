@@ -1,0 +1,9 @@
+============================= test session starts =============================
+platform win32 -- Python 3.7.9, pytest-7.2.2, pluggy-1.0.0
+rootdir: F:\Virtualbox\weko_share_data\github\weko-playwright\weko-reactAutoTest
+plugins: base-url-2.0.0, playwright-0.3.2
+collected 1 item
+
+reactAutoTest_003.py .                                                   [100%]
+
+============================= 1 passed in 26.08s ==============================

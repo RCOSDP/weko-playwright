@@ -14,6 +14,6 @@ def test_helloworld(browser: Browser, browser_type: BrowserType):
     page.screenshot(path=f'images/{browser_type.name}.png')
     page.wait_for_timeout(1000)
     text = page.text_content(
-        '//*[@id="rso"]/div[1]/div/div/div/div/div/div/div[1]/a/h3')
+        '//*[@id="rso"]/div[1]/div/div/div/div/div/div/div/div[1]/a/h3')
     assert text == '国立情報学研究所 オープンサイエンス基盤研究センター'
     page.context.close()
